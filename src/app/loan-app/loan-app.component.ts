@@ -38,5 +38,7 @@ submitted = false;
   
     alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
   }
+
+  // this is demo for conflicts 
   
   }
