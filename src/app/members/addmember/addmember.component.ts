@@ -23,7 +23,6 @@ submitted1 = false;
 submitted2 = false;
 submitted3 = false;
 
-//model: any = {};
 
 constructor(private router : Router, private formBuilder: FormBuilder,  private http: HttpClient) { }
 
