@@ -1,0 +1,337 @@
+<app-header></app-header>
+
+<app-side-nav></app-side-nav>
+
+
+<div class="bs-example" style="margin-top:10px; margin-left:275px">
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <!-- <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"> <h4 class="panel-title"></h4></a> -->
+                <button class="btn btn-primary"  type="button" #btn (click)="show(1)">
+                        Add Member
+                </button>                
+            </div>
+            <!-- <div id="collapseOne" class="panel-collapse collapse in">
+                <div class="panel-body"> -->
+            <form [formGroup]="registerForm"  (ngSubmit)="onSubmit()" >
+                <div [class.collapse]='flag != 1'>
+                    <div class="card card-body">
+                        <div class="container register" style="margin-top:10px; margin-left:5px">
+                            <div class="row register-form">
+                                <div class="col-md-6">
+                                    <div class="form-horizontal" style="color:white">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-5" for="email">CB Member Name :*</label>
+                                                <div class="col-sm-1">
+                                                    <input type="text" class="form-control" style="width: 200px" id="cb memeber name" placeholder="" name="cb memeber name">
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-horizontal" style="color:white">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-5" for="email">Select Group :*</label>
+                                                <div class="col-sm-1">
+                                                    <input type="text" class="form-control" style="width: 200px" id="select group" placeholder="" name="select group">
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-horizontal" style="color:white">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-5" for="email">Memeber Date :*</label>
+                                                <div class="col-sm-1">
+                                                    <input type="text" class="form-control" style="width: 200px" id="member date" placeholder="" name="member date">
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-horizontal" style="color:white">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-5" for="name">Name (Aadhar Card) :*</label>
+                                                <div class="col-sm-1">
+                                                    <input type="text" formControlName="name" class="form-control" style="width: 200px" id="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                                                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                                            <div *ngIf="f.name.errors.required">Name is required</div>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>	
+                                </div> 
+                                <div class="col-md-6">
+                                    <div class="form-horizontal" style="color:white">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-4" for="email">Mobile Number :*</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control" style="width: 200px" id="mobile number" placeholder="" name="mobile number">
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-horizontal" style="color:white">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-4" for="email">Alias Name :*</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control" style="width: 200px" id="alias name" placeholder="" name="alias name">
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="maxl">
+                                            <label class="radio inline" style="color:white"> Gender :*  
+                                                <input type="radio" name="gender" value="male" style="margin-left:5px">
+                                                <span style="margin-left:20px"> Male </span>
+                                                
+                                                <input type="radio" name="gender" value="female" style="margin-left:5px">
+                                                <span style="margin-left:20px">Female </span>                                             
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="maxl">
+                                            <label class="radio inline" style="color:white"> Martial Status :*  
+                                                <input type="radio" name="martial status" value="Married" style="margin-left:5px">
+                                                <span style="margin-left:20px"> Married </span>
+                                                
+                                                <input type="radio" name="martial status" value="Unmarried" style="margin-left:5px">
+                                                <span style="margin-left:20px"> Unmarried  </span>       
+                                                
+                                                <input type="radio" name="martial status" value="Widow" style="margin-left:5px">
+                                                <span style="margin-left:20px"> Widow </span>   
+
+                                                <input type="radio" name="martial status" value="Divorcee" style="margin-left:5px">
+                                                <span style="margin-left:20px"> Divorcee </span>   
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                    <br>
+                                    <div style="margin-left:350px">
+                                        <button type="button" class="btn" style="color:black;background-color:white">Submit</button>
+                                    </div>
+                                    <!-- <button type="button" class="btn btn-primary">Get Data</button> -->
+                                    <!-- <input type="submit" class="btnSubmit"  value="Submit"/> -->
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <button class="btn btn-primary" type="button" #btn (click)="show(2)">
+                    KYC Details
+                </button>
+            </div>
+            <div [class.collapse]='flag != 2'>
+                <div class="card card-body">
+                    <div class="container register" style="margin-top:10px; margin-left:5px">
+                        <div class="row register-form">
+                            <div class="col-md-6">
+                                <div class="form-horizontal" style="color:white">
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-5" for="email">CB Member Name :*</label>
+                                            <div class="col-sm-1">
+                                                <input type="text" class="form-control" style="width: 200px" id="cb memeber name" placeholder="" name="cb memeber name">
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="form-horizontal" style="color:white">
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-5" for="email">Select Group :*</label>
+                                            <div class="col-sm-1">
+                                                <input type="text" class="form-control" style="width: 200px" id="select group" placeholder="" name="select group">
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="form-horizontal" style="color:white">
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-5" for="email">Memeber Date :*</label>
+                                            <div class="col-sm-1">
+                                                <input type="text" class="form-control" style="width: 200px" id="member date" placeholder="" name="member date">
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="form-horizontal" style="color:white">
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-5" for="email">Name (Aadhar Card) :*</label>
+                                            <div class="col-sm-1">
+                                                <input type="text" class="form-control" style="width: 200px" id="name" placeholder="" name="name">
+                                            </div>
+                                    </div>
+                                </div>	
+                            </div> 
+                            <div class="col-md-6">
+                                <div class="form-horizontal" style="color:white">
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-4" for="email">Mobile Number :*</label>
+                                            <div class="col-sm-2">
+                                                <input type="text" class="form-control" style="width: 200px" id="mobile number" placeholder="" name="mobile number">
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="form-horizontal" style="color:white">
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-4" for="email">Alias Name :*</label>
+                                            <div class="col-sm-2">
+                                                <input type="text" class="form-control" style="width: 200px" id="alias name" placeholder="" name="alias name">
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="maxl">
+                                        <label class="radio inline" style="color:white"> Gender :*  
+                                            <input type="radio" name="gender" value="male" style="margin-left:5px">
+                                            <span style="margin-left:20px"> Male </span>
+                                            
+                                            <input type="radio" name="gender" value="female" style="margin-left:5px">
+                                            <span style="margin-left:20px">Female </span>                                             
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="maxl">
+                                        <label class="radio inline" style="color:white"> Martial Status :*  
+                                            <input type="radio" name="martial status" value="Married" style="margin-left:5px">
+                                            <span style="margin-left:20px"> Married </span>
+                                            
+                                            <input type="radio" name="martial status" value="Unmarried" style="margin-left:5px">
+                                            <span style="margin-left:20px"> Unmarried  </span>       
+                                            
+                                            <input type="radio" name="martial status" value="Widow" style="margin-left:5px">
+                                            <span style="margin-left:20px"> Widow </span>   
+
+                                            <input type="radio" name="martial status" value="Divorcee" style="margin-left:5px">
+                                            <span style="margin-left:20px"> Divorcee </span>   
+                                        </label>
+                                    </div>
+                                </div>
+                                <br>
+                                <div style="margin-left:350px">
+                                    <button type="button" class="btn" style="color:black;background-color:white">Submit</button>
+                                </div>
+                                <!-- <button type="button" class="btn btn-primary">Get Data</button> -->
+                                <!-- <input type="submit" class="btnSubmit"  value="Submit"/> -->
+                                <!-- </div> -->
+                            </div>
+                        </div>
+                    </div>         
+                </div>
+            </div>    
+        </div>
+
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                    <button class="btn btn-primary" type="button" #btn (click)="show(3)">
+                        Address Information
+                    </button>
+                </div>
+                <div [class.collapse]='flag != 3'>
+                    <div class="card card-body">
+                        <div class="container register" style="margin-top:10px; margin-left:5px">
+                            <div class="row register-form">
+                                <div class="col-md-6">
+                                    <div class="form-horizontal" style="color:white">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-5" for="email">CB Member Name :*</label>
+                                                <div class="col-sm-1">
+                                                    <input type="text" class="form-control" style="width: 200px" id="cb memeber name" placeholder="" name="cb memeber name">
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-horizontal" style="color:white">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-5" for="email">Select Group :*</label>
+                                                <div class="col-sm-1">
+                                                    <input type="text" class="form-control" style="width: 200px" id="select group" placeholder="" name="select group">
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-horizontal" style="color:white">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-5" for="email">Memeber Date :*</label>
+                                                <div class="col-sm-1">
+                                                    <input type="text" class="form-control" style="width: 200px" id="member date" placeholder="" name="member date">
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-horizontal" style="color:white">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-5" for="email">Name (Aadhar Card) :*</label>
+                                                <div class="col-sm-1">
+                                                    <input type="text" class="form-control" style="width: 200px" id="name" placeholder="" name="name">
+                                                </div>
+                                        </div>
+                                    </div>	
+                                </div> 
+                                <div class="col-md-6">
+                                    <div class="form-horizontal" style="color:white">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-4" for="email">Mobile Number :*</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control" style="width: 200px" id="mobile number" placeholder="" name="mobile number">
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-horizontal" style="color:white">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-4" for="email">Alias Name :*</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control" style="width: 200px" id="alias name" placeholder="" name="alias name">
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="maxl">
+                                            <label class="radio inline" style="color:white"> Gender :*  
+                                                <input type="radio" name="gender" value="male" style="margin-left:5px">
+                                                <span style="margin-left:20px"> Male </span>
+                                                
+                                                <input type="radio" name="gender" value="female" style="margin-left:5px">
+                                                <span style="margin-left:20px">Female </span>                                             
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="maxl">
+                                            <label class="radio inline" style="color:white"> Martial Status :*  
+                                                <input type="radio" name="martial status" value="Married" style="margin-left:5px">
+                                                <span style="margin-left:20px"> Married </span>
+                                                
+                                                <input type="radio" name="martial status" value="Unmarried" style="margin-left:5px">
+                                                <span style="margin-left:20px"> Unmarried  </span>       
+                                                
+                                                <input type="radio" name="martial status" value="Widow" style="margin-left:5px">
+                                                <span style="margin-left:20px"> Widow </span>   
+    
+                                                <input type="radio" name="martial status" value="Divorcee" style="margin-left:5px">
+                                                <span style="margin-left:20px"> Divorcee </span>   
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div style="margin-left:350px">
+                                        <button type="button" class="btn" style="color:black;background-color:white">Submit</button>
+                                    </div>
+                                    <!-- <button type="button" class="btn btn-primary">Get Data</button> -->
+                                    <!-- <input type="submit" class="btnSubmit"  value="Submit"/> -->
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+
+	</div>
+			
+      
+</div>
+
+
+
+
+<app-footer></app-footer>

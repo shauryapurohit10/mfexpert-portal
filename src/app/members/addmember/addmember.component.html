@@ -1,0 +1,253 @@
+<app-header></app-header>
+
+<app-side-nav></app-side-nav>
+
+
+<div class="bs-example" style="margin-top:10px; margin-left:200px;margin-bottom:250px">
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <!-- <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"> <h4 class="panel-title"></h4></a> -->
+                <button class="btn btn-primary"  type="button" #btn (click)="show(1)">
+                        Add Member
+                </button>                
+            </div>
+
+            <!-- <div id="collapseOne" class="panel-collapse collapse in">
+                <div class="panel-body"> -->
+            <form [formGroup]="registerForm1"  (ngSubmit)="onSubmit1()" >
+                <div [class.collapse]='flag != 1'>
+                    <div class="card card-body">
+                        <div class="container register">
+                            <div class="row register-form" style="margin-top:0px; margin-left:-20px">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" formControlName="cbname" class="form-control" style="width: 350px" id="cbname" placeholder="CB Member Name :*" [ngClass]="{ 'is-invalid': submitted1 && f1.cbname.errors }" />
+                                        <div *ngIf="submitted1 && f1.cbname.errors" class="invalid-feedback">
+                                                <div *ngIf="f1.cbname.errors.required">CB Mmeber Name is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" formControlName="group" class="form-control" style="width: 350px" placeholder="Select Group :*" [ngClass]="{ 'is-invalid': submitted1 && f1.group.errors }" />
+                                        <div *ngIf="submitted1 && f1.group.errors" class="invalid-feedback">
+                                                <div *ngIf="f1.group.errors.required">Group is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" formControlName="mdate" class="form-control" style="width: 350px" placeholder="Date of Birth :*" [ngClass]="{ 'is-invalid': submitted1 && f1.mdate.errors }"/>
+                                        <div *ngIf="submitted1 && f1.mdate.errors" class="invalid-feedback">
+                                                <div *ngIf="f1.mdate.errors.required">Member Date is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" formControlName="aname" class="form-control" style="width: 350px" placeholder="Name (Aadhar Card) :*" [ngClass]="{ 'is-invalid': submitted1 && f1.aname.errors }"/>
+                                        <div *ngIf="submitted1 && f1.aname.errors" class="invalid-feedback">
+                                                <div *ngIf="f1.aname.errors.required">Name is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="maxl">
+                                            <label class="radio inline"> Gender :*  
+                                                <input type="radio" formControlName="gender" name="gender" value="male" style="margin-left:0px" [ngClass]="{ 'is-invalid': submitted1 && f1.gender.errors }">
+                                                <span style="margin-left:15px"> Male </span>
+
+                                                <input type="radio" formControlName="gender" name="gender" value="female" style="margin-left:15px" [ngClass]="{ 'is-invalid': submitted1 && f1.gender.errors }">
+                                                <span style="margin-left:30px">Female </span>  
+
+                                                <div *ngIf="submitted1 && f1.gender.errors" class="invalid-feedback">
+                                                    <div *ngIf="f1.gender.errors.required">Gender is required</div>
+                                                </div>                                           
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="maxl">
+                                            <label class="radio inline"> Marital Status
+                                                <input type="radio" formControlName="mstatus" name="mstatus" value="married" style="margin-left:0px" [ngClass]="{ 'is-invalid': submitted && f1.mstatus.errors }">
+                                                <span style="margin-left:15px">Married</span>
+                                                
+                                                <input type="radio" formControlName="mstatus" name="mstatus" value="unmarried" style="margin-left:15px" [ngClass]="{ 'is-invalid': submitted && f1.mstatus.errors }">
+                                                <span style="margin-left:30px">Unmarried</span>
+                                                
+                                                <input type="radio" formControlName="mstatus" name="mstatus" value="widow" style="margin-left:30px" [ngClass]="{ 'is-invalid': submitted && f1.mstatus.errors }">
+                                                <span style="margin-left:45px">Widow</span>
+
+                                                <input type="radio" formControlName="mstatus" name="mstatus" value="divorcee" style="margin-left:45px" [ngClass]="{ 'is-invalid': submitted && f1.mstatus.errors }">
+                                                <span style="margin-left:60px">Divorcee</span>
+                                                <div *ngIf="submitted1 && f1.mstatus.errors" class="invalid-feedback">
+                                                        <div *ngIf="f1.mstatus.errors.required">Marital Status is required</div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" formControlName="alname" class="form-control" style="width: 300px;margin-top:40px" placeholder="Alias Name :*" [ngClass]="{ 'is-invalid': submitted1 && f1.alname.errors }"/>
+                                        <div *ngIf="submitted1 && f1.alname.errors" class="invalid-feedback">
+                                                <div *ngIf="f1.alname.errors.required">Alias Name is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" formControlName="mnumber" name="mnumber" class="form-control" style="width: 300px;margin-top:40px" placeholder="Mobile Number :*" [ngClass]="{ 'is-invalid': submitted1 && f1.mnumber.errors }"/>
+                                        <div *ngIf="submitted1 && f1.mnumber.errors" class="invalid-feedback">
+                                                <div *ngIf="f1.mnumber.errors.required">Mobile Number is required</div>
+                                                <div *ngIf="f1.mnumber.errors.minlength">Mobile Number must be of 10 digits</div>
+                                        </div>
+                                    </div>
+                                
+
+                                    <button type="submit" class="btn btn-dark" style="color:white; margin-top: 25px; margin-left: 100px; background-color: black">Register</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <button class="btn btn-primary" type="button" #btn (click)="show(2)">
+                    KYC Details
+                </button>
+            </div>
+            <form [formGroup]="registerForm2"  (ngSubmit)="onSubmit2()" >
+                <div [class.collapse]='flag != 2'>
+                    <div class="card card-body">
+                        <div class="container register">
+                            <div class="row register-form" style="margin-top:0px; margin-left:-20px">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" formControlName="pnumber" class="form-control" style="width: 350px" id="pnumber" placeholder="Pan Number :*" [ngClass]="{ 'is-invalid': submitted2 && f2.pnumber.errors }" />
+                                        <div *ngIf="submitted2 && f2.pnumber.errors" class="invalid-feedback">
+                                                <div *ngIf="f2.pnumber.errors.required">Pan Number is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" formControlName="adnumber" class="form-control" style="width: 350px" placeholder="Aadhar Number :*" [ngClass]="{ 'is-invalid': submitted2 && f2.adnumber.errors }" />
+                                        <div *ngIf="submitted2 && f2.adnumber.errors" class="invalid-feedback">
+                                                <div *ngIf="f2.adnumber.errors.required">Aadhar Number is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" formControlName="fname" class="form-control" style="width: 350px" placeholder="Full Name :*" [ngClass]="{ 'is-invalid': submitted2 && f2.fname.errors }"/>
+                                        <div *ngIf="submitted2 && f2.fname.errors" class="invalid-feedback">
+                                            <div *ngIf="f2.fname.errors.required">Full Name is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" formControlName="phnumber" class="form-control" style="width: 350px" placeholder="Passport Number:" />
+                                        <!-- <input type="text" formControlName="phnumber" class="form-control" style="width: 350px" placeholder="Passport Number: *" [ngClass]="{ 'is-invalid': submitted2 && f2.phnumber.errors }"/>
+                                        <div *ngIf="submitted2 && f2.phnumber.errors" class="invalid-feedback">
+                                                <div *ngIf="f2.phnumber.errors.required">Passport Number is required</div>
+                                        </div> -->
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="email" formControlName="mail" class="form-control" style="width: 300px;margin-top:40px" placeholder="Email :*" [ngClass]="{ 'is-invalid': submitted2 && f2.mail.errors }"/>
+                                        <div *ngIf="submitted2 && f2.mail.errors" class="invalid-feedback">
+                                                <div *ngIf="f2.mail.errors.required">Email is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" formControlName="mnumber" name="mnumber" class="form-control" style="width: 300px;margin-top:40px" placeholder="Mobile Number :*" [ngClass]="{ 'is-invalid': submitted2 && f2.mnumber.errors }"/>
+                                        <div *ngIf="submitted2 && f2.mnumber.errors" class="invalid-feedback">
+                                            <div *ngIf="f2.mnumber.errors.required">Mobile Number is required</div>
+                                            <div *ngIf="f2.mnumber.errors.minlength">Mobile Number must be of 10 digits</div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-dark" style="color:white; margin-top: 10px; margin-left: 100px;margin-bottom: 10px; background-color: black">Register</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+       <!-- <div class="panel panel-default">
+            <div class="panel-heading">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"> <h4 class="panel-title">
+                  Question Three
+                </h4></a>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse">
+                <div class="panel-body">
+                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt ipsum eget nisl accumsan, eu cursus tellus bibendum. Nam et ipsum scelerisque dolor consequat tempor vel vel tortor.</p>
+					<p>Ut finibus facilisis lacus, sit amet porttitor enim mollis sed. Nunc orci magna, iaculis sit amet magna non, tincidunt varius sem.</p>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="panel panel-default" >
+                <div class="panel-heading">
+                    <button class="btn btn-primary" type="button" #btn (click)="show(3)">
+                        Address Details
+                    </button>
+                </div>
+                <form [formGroup]="registerForm3"  (ngSubmit)="onSubmit3()" >
+                    <div [class.collapse]='flag != 3'>
+                        <div class="card card-body">
+                            <div class="container register">
+                                <div class="row register-form" style="margin-top:0px; margin-left:-20px">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" formControlName="add1" class="form-control" style="width: 350px" id="cbname" placeholder="Address Line 1 :*" [ngClass]="{ 'is-invalid': submitted3 && f3.add1.errors }" />
+                                            <div *ngIf="submitted3 && f3.add1.errors" class="invalid-feedback">
+                                                <div *ngIf="f3.add1.errors.required">Address Line 1 is required</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" formControlName="add2" class="form-control" style="width: 350px" placeholder="Address Line 2 :*" />
+                                            <!-- <input type="text" formControlName="add2" class="form-control" style="width: 350px" placeholder="Address Line 2 :*" [ngClass]="{ 'is-invalid': submitted3 && f3.add2.errors }" />
+                                            <div *ngIf="submitted3 && f3.add2.errors" class="invalid-feedback">
+                                                <div *ngIf="f3.add2.errors.required">Address Line 2  is required</div>
+                                            </div> -->
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" formControlName="city" class="form-control" style="width: 350px" placeholder="City :*" [ngClass]="{ 'is-invalid': submitted3 && f3.city.errors }"/>
+                                            <div *ngIf="submitted3 && f3.city.errors" class="invalid-feedback">
+                                                <div *ngIf="f3.city.errors.required">City Name is required</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" formControlName="state" class="form-control" style="width: 350px" placeholder="State :*" [ngClass]="{ 'is-invalid': submitted3 && f3.state.errors }"/>
+                                            <div *ngIf="submitted3 && f3.state.errors" class="invalid-feedback">
+                                                <div *ngIf="f3.state.errors.required">State Name is required</div>
+                                            </div>
+                                        </div>        
+                                    </div>
+                                    
+                                    <div class="col-md-6">  
+                                        <div class="form-group">
+                                            <input type="text" formControlName="country" class="form-control" style="width: 350px" placeholder="Country :*" [ngClass]="{ 'is-invalid': submitted3 && f3.country.errors }"/>
+                                            <div *ngIf="submitted3 && f3.country.errors" class="invalid-feedback">
+                                                <div *ngIf="f3.country.errors.required"> Country Name is required</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" formControlName="pcode" class="form-control" style="width: 350px" placeholder="Postal Code :*" [ngClass]="{ 'is-invalid': submitted3 && f3.pcode.errors }"/>
+                                            <div *ngIf="submitted3 && f3.pcode.errors" class="invalid-feedback">
+                                                <div *ngIf="f3.pcode.errors.required">Postal Code is required</div>
+                                                <div *ngIf="f3.pcode.errors.minlength">Postal Code must be of 6 digits</div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-dark" style="color:white; margin-top: 25px; margin-left: 100px; background-color: black">Register</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+	    </div>
+			
+      
+</div>
+
+
+
+
+<app-footer></app-footer>
