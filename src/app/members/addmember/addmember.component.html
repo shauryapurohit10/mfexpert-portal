@@ -89,10 +89,10 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" formControlName="mnumber" name="mnumber" class="form-control" style="width: 300px;margin-top:40px" placeholder="Mobile Number :*" [ngClass]="{ 'is-invalid': submitted1 && f1.mnumber.errors }"/>
-                                        <div *ngIf="submitted1 && f1.mnumber.errors" class="invalid-feedback">
-                                                <div *ngIf="f1.mnumber.errors.required">Mobile Number is required</div>
-                                                <div *ngIf="f1.mnumber.errors.minlength">Mobile Number must be of 10 digits</div>
+                                        <input type="text" formControlName="monumber" name="monumber" class="form-control" style="width: 300px;margin-top:40px" placeholder="Mobile Number :*" [ngClass]="{ 'is-invalid': submitted1 && f1.monumber.errors }"/>
+                                        <div *ngIf="submitted1 && f1.monumber.errors" class="invalid-feedback">
+                                                <div *ngIf="f1.monumber.errors.required">Mobile Number is required</div>
+                                                <div *ngIf="f1.monumber.errors.minlength">Mobile Number must be of 10 digits</div>
                                         </div>
                                     </div>
                                 
@@ -114,32 +114,26 @@
                     KYC Details
                 </button>
             </div>
-            <form [formGroup]="registerForm2"  (ngSubmit)="onSubmit2()" >
+            <form id="registerForm2" [formGroup]="registerForm2" (ngSubmit)="onSubmit2()">
                 <div [class.collapse]='flag != 2'>
                     <div class="card card-body">
                         <div class="container register">
                             <div class="row register-form" style="margin-top:0px; margin-left:-20px">
                                 <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" formControlName="pnumber" class="form-control" style="width: 350px" id="pnumber" placeholder="Pan Number :*" [ngClass]="{ 'is-invalid': submitted2 && f2.pnumber.errors }" />
-                                        <div *ngIf="submitted2 && f2.pnumber.errors" class="invalid-feedback">
-                                                <div *ngIf="f2.pnumber.errors.required">Pan Number is required</div>
-                                        </div>
+                                    <div class="form-group">                         
+                                        <input type="text" formControlName="pnumber" class="form-control" style="width: 350px" id="pnumber" placeholder="Pan Number :*" autocomplete="off" />
+                                        <div class="error" *ngIf="registerForm2.controls['pnumber'].hasError('required') && registerForm2.controls['pnumber'].touched">Pan Number is required</div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" formControlName="adnumber" class="form-control" style="width: 350px" placeholder="Aadhar Number :*" [ngClass]="{ 'is-invalid': submitted2 && f2.adnumber.errors }" />
-                                        <div *ngIf="submitted2 && f2.adnumber.errors" class="invalid-feedback">
-                                                <div *ngIf="f2.adnumber.errors.required">Aadhar Number is required</div>
-                                        </div>
+                                        <input type="text" formControlName="adnumber" class="form-control" style="width: 350px" id="adnumber" placeholder="Aadhar Number :*" autocomplete="off" />
+                                        <div class="error" *ngIf="registerForm2.controls['adnumber'].hasError('required') && registerForm2.controls['adnumber'].touched">Aadhar Number is required</div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" formControlName="fname" class="form-control" style="width: 350px" placeholder="Full Name :*" [ngClass]="{ 'is-invalid': submitted2 && f2.fname.errors }"/>
-                                        <div *ngIf="submitted2 && f2.fname.errors" class="invalid-feedback">
-                                            <div *ngIf="f2.fname.errors.required">Full Name is required</div>
-                                        </div>
+                                        <input type="text" formControlName="fname" class="form-control" style="width: 350px" id="fname" placeholder="Full Name :*" autocomplete="off" />
+                                        <div class="error" *ngIf="registerForm2.controls['fname'].hasError('required') && registerForm2.controls['fname'].touched">Full Name is required</div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" formControlName="phnumber" class="form-control" style="width: 350px" placeholder="Passport Number:" />
+                                        <input type="text" formControlName="phnumber" class="form-control" style="width: 350px" id="phnumber" placeholder="Passport Number:" autocomplete="off" />
                                         <!-- <input type="text" formControlName="phnumber" class="form-control" style="width: 350px" placeholder="Passport Number: *" [ngClass]="{ 'is-invalid': submitted2 && f2.phnumber.errors }"/>
                                         <div *ngIf="submitted2 && f2.phnumber.errors" class="invalid-feedback">
                                                 <div *ngIf="f2.phnumber.errors.required">Passport Number is required</div>
@@ -148,19 +142,18 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="email" formControlName="mail" class="form-control" style="width: 300px;margin-top:40px" placeholder="Email :*" [ngClass]="{ 'is-invalid': submitted2 && f2.mail.errors }"/>
-                                        <div *ngIf="submitted2 && f2.mail.errors" class="invalid-feedback">
-                                                <div *ngIf="f2.mail.errors.required">Email is required</div>
-                                        </div>
+                                        <input type="email" formControlName="mail" class="form-control" style="width:300px;margin-top:40px" id="mail" placeholder="Email :*" autocomplete="off" />
+                                        <div class="error" *ngIf="registerForm2.controls['mail'].hasError('required') && registerForm2.controls['mail'].touched">Email is required</div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" formControlName="mnumber" name="mnumber" class="form-control" style="width: 300px;margin-top:40px" placeholder="Mobile Number :*" [ngClass]="{ 'is-invalid': submitted2 && f2.mnumber.errors }"/>
-                                        <div *ngIf="submitted2 && f2.mnumber.errors" class="invalid-feedback">
-                                            <div *ngIf="f2.mnumber.errors.required">Mobile Number is required</div>
-                                            <div *ngIf="f2.mnumber.errors.minlength">Mobile Number must be of 10 digits</div>
-                                        </div>
+                                        <input type="text" formControlName="mnumber" class="form-control" style="width:300px;margin-top:40px" id="mnumber" placeholder="Mobile Number :*" autocomplete="off" />
+                                        <div class="error" *ngIf="registerForm2.controls['mnumber'].hasError('required') && registerForm2.controls['mnumber'].touched">Mobile Number is required</div>
+                                        <!-- <div *ngIf="f2.mnumber.errors.minlength">Mobile Number must be of 10 digits</div> -->            
                                     </div>
-                                    <button type="submit" class="btn btn-dark" style="color:white; margin-top: 10px; margin-left: 100px;margin-bottom: 10px; background-color: black">Register</button>
+                                    <button type="submit" class="btn btn-dark"  style="color:white; margin-top: 10px; margin-left: 100px;margin-bottom: 10px; background-color: black">Register</button>
+                                    <div *ngIf="invalidLogin" class="error">
+                                        <div>Invalid credentials</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -188,33 +181,35 @@
                         Address Details
                     </button>
                 </div>
-                <form [formGroup]="registerForm3"  (ngSubmit)="onSubmit3()" >
+                <form id="registerForm3" [formGroup]="registerForm3"  (ngSubmit)="onSubmit3()" >
                     <div [class.collapse]='flag != 3'>
                         <div class="card card-body">
                             <div class="container register">
                                 <div class="row register-form" style="margin-top:0px; margin-left:-20px">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input type="text" formControlName="add1" class="form-control" style="width: 350px" id="cbname" placeholder="Address Line 1 :*" [ngClass]="{ 'is-invalid': submitted3 && f3.add1.errors }" />
+                                                <!-- <input type="text" formControlName="pnumber" class="form-control" style="width: 350px" id="pnumber" placeholder="Pan Number :*" autocomplete="off" /> -->
+                                                <!-- <div class="error" *ngIf="registerForm2.controls['pnumber'].hasError('required') && registerForm2.controls['pnumber'].touched">Pan Number is required</div> -->
+                                            <input type="text" formControlName="add1" class="form-control" style="width: 350px" id="cbname" placeholder="Address Line 1 :*" [ngClass]="{ 'is-invalid': submitted3 && f3.add1.errors }" autocomplete="off" />
                                             <div *ngIf="submitted3 && f3.add1.errors" class="invalid-feedback">
                                                 <div *ngIf="f3.add1.errors.required">Address Line 1 is required</div>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" formControlName="add2" class="form-control" style="width: 350px" placeholder="Address Line 2 :*" />
+                                            <input type="text" formControlName="add2" class="form-control" style="width: 350px" placeholder="Address Line 2 :*" autocomplete="off" />
                                             <!-- <input type="text" formControlName="add2" class="form-control" style="width: 350px" placeholder="Address Line 2 :*" [ngClass]="{ 'is-invalid': submitted3 && f3.add2.errors }" />
                                             <div *ngIf="submitted3 && f3.add2.errors" class="invalid-feedback">
                                                 <div *ngIf="f3.add2.errors.required">Address Line 2  is required</div>
                                             </div> -->
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" formControlName="city" class="form-control" style="width: 350px" placeholder="City :*" [ngClass]="{ 'is-invalid': submitted3 && f3.city.errors }"/>
+                                            <input type="text" formControlName="city" class="form-control" style="width: 350px" placeholder="City :*" [ngClass]="{ 'is-invalid': submitted3 && f3.city.errors }" autocomplete="off"/>
                                             <div *ngIf="submitted3 && f3.city.errors" class="invalid-feedback">
                                                 <div *ngIf="f3.city.errors.required">City Name is required</div>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" formControlName="state" class="form-control" style="width: 350px" placeholder="State :*" [ngClass]="{ 'is-invalid': submitted3 && f3.state.errors }"/>
+                                            <input type="text" formControlName="state" class="form-control" style="width: 350px" placeholder="State :*" [ngClass]="{ 'is-invalid': submitted3 && f3.state.errors }" autocomplete="off"/>
                                             <div *ngIf="submitted3 && f3.state.errors" class="invalid-feedback">
                                                 <div *ngIf="f3.state.errors.required">State Name is required</div>
                                             </div>
@@ -223,13 +218,13 @@
                                     
                                     <div class="col-md-6">  
                                         <div class="form-group">
-                                            <input type="text" formControlName="country" class="form-control" style="width: 350px" placeholder="Country :*" [ngClass]="{ 'is-invalid': submitted3 && f3.country.errors }"/>
+                                            <input type="text" formControlName="country" class="form-control" style="width: 350px" placeholder="Country :*" [ngClass]="{ 'is-invalid': submitted3 && f3.country.errors }" autocomplete="off"/>
                                             <div *ngIf="submitted3 && f3.country.errors" class="invalid-feedback">
                                                 <div *ngIf="f3.country.errors.required"> Country Name is required</div>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" formControlName="pcode" class="form-control" style="width: 350px" placeholder="Postal Code :*" [ngClass]="{ 'is-invalid': submitted3 && f3.pcode.errors }"/>
+                                            <input type="text" formControlName="pcode" class="form-control" style="width: 350px" placeholder="Postal Code :*" [ngClass]="{ 'is-invalid': submitted3 && f3.pcode.errors }" autocomplete="off"/>
                                             <div *ngIf="submitted3 && f3.pcode.errors" class="invalid-feedback">
                                                 <div *ngIf="f3.pcode.errors.required">Postal Code is required</div>
                                                 <div *ngIf="f3.pcode.errors.minlength">Postal Code must be of 6 digits</div>
