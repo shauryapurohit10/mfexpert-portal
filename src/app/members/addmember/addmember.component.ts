@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-addmember',
@@ -23,8 +25,7 @@ submitted3 = false;
 
 //model: any = {};
 
-constructor(private formBuilder: FormBuilder) { }
-
+constructor(private router : Router, private formBuilder: FormBuilder,  private http: HttpClient) { }
 ngOnInit() {
   this.registerForm1 = this.formBuilder.group({
   cbname: ['', Validators.required],
@@ -62,14 +63,47 @@ get f2() { return this.registerForm2.controls; }
 get f3() { return this.registerForm3.controls; }
 
 onSubmit1() {
-  this.submitted1 = true;
-
-  // stop here if form is invalid
-  if (this.registerForm1.invalid) {
-      return;
-  }
-
-  alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm1.value))
+  // if (this.loginForm.invalid) {
+  //   return;
+  // }
+  //debugger
+  const addmemberPayload = {
+    
+    cbname: this.registerForm1.controls.cbname.value,
+    group: this.registerForm1.controls.group.value,
+    mdate:this.registerForm1.controls.mdate.value,
+    aname: this.registerForm1.controls.aname.value,
+    gender: this.registerForm1.controls.gender.value,
+    mstatus:this.registerForm1.controls.mstatus.value,
+    alname:this.registerForm1.controls.alname.value,
+    mnumber:this.registerForm1.controls.mnumber.value,
+   }
+  // this.apiService.login(loginPayload).subscribe(data => {
+  //   if(data.id != null) {
+  //     this.router.navigate(['/','mainpage']);
+  //     console.log("Login successful");
+  //   }else {
+  //     this.invalidLogin = true;
+  //     alert(data.message);
+  //   }
+  // });
+  let data_success
+  this.http.post("http://localhost:3001/api/v1/addmember", addmemberPayload).subscribe((data) => {
+    //console.log(data)
+    data_success = data;
+    if(data_success.responseMessage.length > 0) {
+      this.router.navigate(['/','mainpage']);
+    } else {
+      alert("Invalid Credentials!!");
+    }
+      // if(data.id != null) {
+      //   this.router.navigate(['/','mainpage']);
+      //   console.log("Login successful");
+      // } else {
+      //   this.invalidLogin = true;
+      //   alert(data.message);
+      // }
+    })
 }
 
 onSubmit2() {
