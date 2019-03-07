@@ -11,14 +11,14 @@
           <div class="form-group">
             <label>Application Code: *</label>
             <!-- <input type="text" formControlName="appcode" class="form-control" style="width:430px" /> -->
-            <input type="text" formControlName="appcode" class="form-control" style="width:430px" [ngClass]="{ 'is-invalid': submitted && f.appcode.errors }" />
-            <div *ngIf="submitted && f.appcode.errors" class="invalid-feedback">
-                <div *ngIf="f.appcode.errors.required">Application Code is required</div>
+            <input type="text" formControlName="application_code" class="form-control" style="width:430px" [ngClass]="{ 'is-invalid': submitted && f.application_code.errors }" />
+            <div *ngIf="submitted && f.application_code.errors" class="invalid-feedback">
+                <div *ngIf="f.application_code.errors.required">Application Code is required</div>
             </div>
           </div>
           <div class="form-group">
               <label>Member Code: </label>
-              <input type="text" formControlName="mcode" class="form-control" placeholder="Search by member code or name" style="width: 430px" />
+              <input type="text" formControlName="member_code" class="form-control" placeholder="Search by member code or name" style="width: 430px" />
               <!-- <input type="text" formControlName="mcode" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mcode.errors }" />
               <div *ngIf="submitted && f.mcode.errors" class="invalid-feedback">
                   <div *ngIf="f.mcode.errors.required">Member Code is required</div>
@@ -26,7 +26,7 @@
           </div>
           <div class="form-group">
               <label>Member Name: </label>
-              <input type="text" formControlName="mname" class="form-control" style="width: 430px" />
+              <input type="text" formControlName="member_name" class="form-control" style="width: 430px" />
               <!-- <input type="text" formControlName="mname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mname.errors }" />
               <div *ngIf="submitted && f.mname.errors" class="invalid-feedback">
                   <div *ngIf="f.mname.errors.required">Member Name is required</div>
@@ -35,10 +35,10 @@
           </div>
           <div class="form-group">
               <label>Mobile Number: * </label>
-              <input type="text" formControlName="mnumber" class="form-control" style="width: 430px" [ngClass]="{ 'is-invalid': submitted && f.mnumber.errors }" />
-              <div *ngIf="submitted && f.mnumber.errors" class="invalid-feedback">
-                  <div *ngIf="f.mnumber.errors.required">Mobile Number is required</div>
-                  <div *ngIf="f.mnumber.errors.minlength">Mobile Number must be of 10 numbers</div>
+              <input type="text" formControlName="mobile_number" class="form-control" style="width: 430px" [ngClass]="{ 'is-invalid': submitted && f.mobile_number.errors }" />
+              <div *ngIf="submitted && f.mobile_number.errors" class="invalid-feedback">
+                  <div *ngIf="f.mobile_number.errors.required">Mobile Number is required</div>
+                  <div *ngIf="f.mobile_number.errors.minlength">Mobile Number must be of 10 numbers</div>
               </div>
           </div>
           <div class="form-group">
@@ -61,7 +61,7 @@
         <div class="col-md-6">
             <div class="form-group">
               <label>Expected Disbursement Date: </label>
-              <input type="date" formControlName="eddate" class="form-control" style="width: 430px"/>
+              <input type="date" formControlName="expected_disbursment_date" class="form-control" style="width: 430px"/>
               <!-- <input type="text" formControlName="eddate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.eddate.errors }" />
               <div *ngIf="submitted && f.eddate.errors" class="invalid-feedback">
                 <div *ngIf="f.eddate.errors.required">E-Date is required</div>
@@ -69,7 +69,7 @@
             </div>
             <div class="form-group">
                 <label>Loan Amount:  </label>
-                <input type="text" formControlName="lamount" class="form-control" placeholder="0" style="width: 430px" />
+                <input type="text" formControlName="loan_amount" class="form-control" placeholder="0" style="width: 430px" />
                 <!-- <input type="text" formControlName="mcode" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lamount.errors }" />
                 <div *ngIf="submitted && f.lamount.errors" class="invalid-feedback">
                     <div *ngIf="f.lamount.errors.required">Loan Amount is required</div>
@@ -86,7 +86,7 @@
             </div>
             <div class="form-group">
                 <label>Rate of Interest:  </label>
-                <input type="number" formControlName="roi" class="form-control" placeholder="0" style="width: 430px"/>
+                <input type="number" formControlName="rate_of_interest" class="form-control" placeholder="0" style="width: 430px"/>
                 <!-- <input type="number" formControlName="roi" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.roi.errors }" />
                 <div *ngIf="submitted && f.roi.errors" class="invalid-feedback">
                     <div *ngIf="f.roi.errors.required">ROI is required</div>
