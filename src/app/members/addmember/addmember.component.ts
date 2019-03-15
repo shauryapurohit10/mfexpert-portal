@@ -2,10 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-<<<<<<< HEAD
-=======
-import { Router } from '@angular/router';
->>>>>>> 5ffa7a648a0ac7586829f3ba08d99fefeb07717b
 
 @Component({
   selector: 'app-addmember',
@@ -14,23 +10,70 @@ import { Router } from '@angular/router';
 })
 export class AddmemberComponent implements OnInit {
 
-flag:number;
+  flag:number;
 
-show(obj:number) {
-  this.flag = obj;
-}
+  show(obj:number) {
+    this.flag = obj;
+  }
 
-registerForm1: FormGroup;
-registerForm2: FormGroup;
-registerForm3: FormGroup;
-submitted1 = false;
-submitted2 = false;
-submitted3 = false;
+  registerForm1: FormGroup;
+  registerForm2: FormGroup;
+  registerForm3: FormGroup;
+  submitted1 = false;
+  submitted2 = false;
+  submitted3 = false;
 
 
-constructor(private router : Router, private formBuilder: FormBuilder,  private http: HttpClient) { }
+  constructor(private router : Router, private formBuilder: FormBuilder,  private http: HttpClient) { }
 
-onSubmit2() {
+  onSubmit1() {
+    // if (this.loginForm.invalid) {
+    //   return;
+    // }
+    //debugger
+    const addmemberPayload = {
+      
+      cbname: this.registerForm1.controls.cbname.value,
+      group: this.registerForm1.controls.group.value,
+      mdate:this.registerForm1.controls.mdate.value,
+      aname: this.registerForm1.controls.aname.value,
+      gender: this.registerForm1.controls.gender.value,
+      mstatus:this.registerForm1.controls.mstatus.value,
+      alname:this.registerForm1.controls.alname.value,
+      monumber:this.registerForm1.controls.monumber.value,
+    }
+    // this.apiService.login(loginPayload).subscribe(data => {
+    //   if(data.id != null) {
+    //     this.router.navigate(['/','mainpage']);
+    //     console.log("Login successful");
+    //   }else {
+    //     this.invalidLogin = true;
+    //     alert(data.message);
+    //   }
+    // });
+    let data_success
+    this.http.post("http://localhost:3001/api/v1/addmember", addmemberPayload).subscribe((data) => {
+      //console.log(data)
+      data_success = data;
+      if(data_success.responseMessage.length>0)
+        {
+          alert("Member added successfully!!");
+        } 
+        else 
+        {
+          alert("Please fill the form again!!");
+        }
+        // if(data.id != null) {
+        //   this.router.navigate(['/','mainpage']);
+        //   console.log("Login successful");
+        // } else {
+        //   this.invalidLogin = true;
+        //   alert(data.message);
+        // }
+      })
+  }
+
+  onSubmit2() {
   this.submitted2 = true;
 
   // // stop here if form is invalid
@@ -49,136 +92,88 @@ onSubmit2() {
 
   let data_success
   this.http.post("http://localhost:3001/api/v1/kycusers", registerForm2load).subscribe((data) => {
-    //console.log(data)
-    data_success = data;
-    if(data_success.responseMessage.rowCount == 1 ) 
-    {
-      alert("KYC Details successfully inserted!!");
-    } 
-    else 
-    {
-      alert("Please fill the form again!!");
-    }
+  //console.log(data)
+  data_success = data;
+  if(data_success.responseMessage.rowCount == 1 ) 
+  {
+    alert("KYC Details successfully inserted!!");
+  } 
+  else 
+  {
+    alert("Please fill the form again!!");
+  }
   })
-}
+  }
 
-onSubmit3() {
-  this.submitted3 = true;
+  onSubmit3() {
+    this.submitted3 = true;
 
-  // // stop here if form is invalid
-  // if (this.registerForm3.invalid) {
-  //     return;
-  // }
+    // // stop here if form is invalid
+    // if (this.registerForm3.invalid) {
+    //     return;
+    // }
 
-  // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm3.value))
- 
-  const registerForm3load = {
-    add1: this.registerForm3.controls.add1.value,
-    add2: this.registerForm3.controls.add2.value,
-    city: this.registerForm3.controls.city.value,
-    state: this.registerForm3.controls.state.value,
-    country: this.registerForm3.controls.country.value,
-    pcode: this.registerForm3.controls.pcode.value
-    }
+    // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm3.value))
   
-    let data_success
-    this.http.post("http://localhost:3001/api/v1/addressusers", registerForm3load).subscribe((data) => {
-      //console.log(data)
-      data_success = data;
-      if(data_success.responseMessage.rowCount == 1 ) 
-      {
-        alert("Address Details successfully inserted!!");
-      } 
-      else 
-      {
-        alert("Please fill the form again!!");
+    const registerForm3load = {
+      add1: this.registerForm3.controls.add1.value,
+      add2: this.registerForm3.controls.add2.value,
+      city: this.registerForm3.controls.city.value,
+      state: this.registerForm3.controls.state.value,
+      country: this.registerForm3.controls.country.value,
+      pcode: this.registerForm3.controls.pcode.value
       }
-    })
-
-
-
-
-}
-
-
-ngOnInit() {
-  this.registerForm1 = this.formBuilder.group({
-  cbname: ['', Validators.required],
-  group: ['', Validators.required],
-  mdate: ['', Validators.required],
-  aname: ['', Validators.required],
-  gender: ['', Validators.required],
-  mstatus: ['', Validators.required],
-  alname: ['', Validators.required],
-  monumber: ['', [Validators.required, Validators.minLength(10)]],
-});
-this.registerForm2 = this.formBuilder.group({
-  pnumber:  ['', Validators.required],
-  adnumber:  ['', Validators.required],
-  fname: ['', Validators.required],
-  phnumber: ['', Validators.required],
-  mail:  ['', Validators.required],
-  mnumber: ['', [Validators.required, Validators.minLength(10)]]
-  // lastName: ['', Validators.required],
-  // email: ['', [Validators.required, Validators.email]],
-  // password: ['', [Validators.required, Validators.minLength(6)]]
-});
-this.registerForm3 = this.formBuilder.group({
-  add1: ['', Validators.required],
-  add2: ['', Validators.required],
-  city: ['', Validators.required],
-  state: ['', Validators.required],
-  country: ['', Validators.required],
-  pcode: ['', [Validators.required,Validators.minLength(6)]]
-});
-}
-
-get f1() { return this.registerForm1.controls; }
-get f2() { return this.registerForm2.controls; }
-get f3() { return this.registerForm3.controls; }
-
-onSubmit1() {
-  // if (this.loginForm.invalid) {
-  //   return;
-  // }
-  //debugger
-  const addmemberPayload = {
     
-    cbname: this.registerForm1.controls.cbname.value,
-    group: this.registerForm1.controls.group.value,
-    mdate:this.registerForm1.controls.mdate.value,
-    aname: this.registerForm1.controls.aname.value,
-    gender: this.registerForm1.controls.gender.value,
-    mstatus:this.registerForm1.controls.mstatus.value,
-    alname:this.registerForm1.controls.alname.value,
-    mnumber:this.registerForm1.controls.mnumber.value,
-   }
-  // this.apiService.login(loginPayload).subscribe(data => {
-  //   if(data.id != null) {
-  //     this.router.navigate(['/','mainpage']);
-  //     console.log("Login successful");
-  //   }else {
-  //     this.invalidLogin = true;
-  //     alert(data.message);
-  //   }
-  // });
-  let data_success
-  this.http.post("http://localhost:3001/api/v1/addmember", addmemberPayload).subscribe((data) => {
-    //console.log(data)
-    data_success = data;
-    if(data_success.responseMessage.length > 0) {
-      this.router.navigate(['/','mainpage']);
-    } else {
-      alert("Invalid Credentials!!");
-    }
-      // if(data.id != null) {
-      //   this.router.navigate(['/','mainpage']);
-      //   console.log("Login successful");
-      // } else {
-      //   this.invalidLogin = true;
-      //   alert(data.message);
-      // }
-    })
-}
+      let data_success
+      this.http.post("http://localhost:3001/api/v1/addressusers", registerForm3load).subscribe((data) => {
+        //console.log(data)
+        data_success = data;
+        if(data_success.responseMessage.rowCount == 1 ) 
+        {
+          alert("Address Details successfully inserted!!");
+        } 
+        else 
+        {
+          alert("Please fill the form again!!");
+        }
+      })
+  }
+
+
+  ngOnInit() {
+    this.registerForm1 = this.formBuilder.group({
+    cbname: ['', Validators.required],
+    group: ['', Validators.required],
+    mdate: ['', Validators.required],
+    aname: ['', Validators.required],
+    gender: ['', Validators.required],
+    mstatus: ['', Validators.required],
+    alname: ['', Validators.required],
+    monumber: ['', [Validators.required, Validators.minLength(10)]],
+  });
+  this.registerForm2 = this.formBuilder.group({
+    pnumber:  ['', Validators.required],
+    adnumber:  ['', Validators.required],
+    fname: ['', Validators.required],
+    phnumber: ['', Validators.required],
+    mail:  ['', Validators.required],
+    mnumber: ['', [Validators.required, Validators.minLength(10)]]
+    // lastName: ['', Validators.required],
+    // email: ['', [Validators.required, Validators.email]],
+    // password: ['', [Validators.required, Validators.minLength(6)]]
+  });
+  this.registerForm3 = this.formBuilder.group({
+    add1: ['', Validators.required],
+    add2: ['', Validators.required],
+    city: ['', Validators.required],
+    state: ['', Validators.required],
+    country: ['', Validators.required],
+    pcode: ['', [Validators.required,Validators.minLength(6)]]
+  });
+  }
+
+  get f1() { return this.registerForm1.controls; }
+  get f2() { return this.registerForm2.controls; }
+  get f3() { return this.registerForm3.controls; }
 
 }

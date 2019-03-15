@@ -20,6 +20,8 @@ import { AddmemberComponent } from './members/addmember/addmember.component';
 import { LoanAppComponent } from './loan-app/loan-app.component';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { LoanApprovalComponent } from './loan-approval/loan-approval.component';
+import { LoanEditComponent } from './loan-edit/loan-edit.component';
 //import { OverlayModule } from "@angular/cdk/overlay";
 
 @NgModule({
@@ -37,7 +39,9 @@ import { HttpClientModule } from '@angular/common/http';
     AboutComponent,
     SideNavComponent,
     AddmemberComponent,
-    LoanAppComponent
+    LoanAppComponent,
+    LoanApprovalComponent,
+    LoanEditComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +75,15 @@ import { HttpClientModule } from '@angular/common/http';
       {
         path:'loanapp',
         component:LoanAppComponent
-      } 
+      }, 
+      {
+        path: 'loanapproval',
+        component: LoanApprovalComponent
+      },
+      {
+        path: 'loanedit',
+        component: LoanEditComponent
+      }
       ])
   ],
   providers: [],

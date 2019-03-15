@@ -18,15 +18,15 @@ constructor(private router : Router, private formBuilder: FormBuilder,  private 
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-    appcode: ['', Validators.required],
-    mnumber: ['', [Validators.required, Validators.minLength(10)]],
-    mcode: [''],
-    mname: [''],
+    application_code: ['', Validators.required],
+    member_code: ['', [Validators.required, Validators.minLength(10)]],
+    member_name: [''],
+    mobile_number: [''],
     product: [''],
-    eddate: [''],
-    lamount: [''],
+    expected_disbursment_date: [''],
+    loan_amount: [''],
     purpose: [''],
-    roi: ['']
+    rate_of_interest: ['']
     });
   }
   
@@ -36,27 +36,28 @@ constructor(private router : Router, private formBuilder: FormBuilder,  private 
 
 
     const loanPayload = {
-      application_code: this.registerForm.controls.appcode.value,
-      member_code: this.registerForm.controls.mcode.value,
-      member_name: this.registerForm.controls.mname.value,
-      mobile_number: this.registerForm.controls.mnumber.value,
+      application_code: this.registerForm.controls.application_code.value,
+      member_code: this.registerForm.controls.member_code.value,
+      member_name: this.registerForm.controls.member_name.value,
+      mobile_number: this.registerForm.controls.mobile_number.value,
       product: this.registerForm.controls.product.value,
-      expected_disbursment_date: this.registerForm.controls.eddate.value,
+      expected_disbursment_date: this.registerForm.controls.expected_disbursment_date.value,
+      loan_amount: this.registerForm.controls.loan_amount.value,
       purpose: this.registerForm.controls.purpose.value,
-      rate_of_interest: this.registerForm.controls.roi.value
+      rate_of_interest: this.registerForm.controls.rate_of_interest.value
 
      }
     this.submitted = true;
 
-    //let data_success
-  this.http.post("http://localhost:3001/api/v1/loan", loanPayload).subscribe((data) => {
-    console.log(data)
-    // data_success = data;
-    // if(data_success.responseMessage.length > 0) {
-    //   alert("Success");
-    // } else {
-    //   alert("Invalid Credentials!!");
-    // }
+    let data_success
+    this.http.post("http://localhost:3001/api/v1/loan", loanPayload).subscribe((data) => {
+    //console.log(data)
+    data_success = data;
+    if(data_success.responseMessage.length > 0) {
+      alert("Details inserted successfully!");
+    } else {
+      alert("Invalid Credentials!!");
+    }
   
     // stop here if form is invalid
     // if (this.registerForm.invalid) {
