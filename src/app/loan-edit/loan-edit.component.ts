@@ -11,8 +11,8 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class LoanEditComponent implements OnInit {
-editForm: FormGroup;
-submitted = false;
+  editForm: FormGroup;
+  submitted = false;
   loan_amount:any;
   users: any[];
   user: any;
@@ -23,37 +23,27 @@ submitted = false;
     this.editForm = this.formBuilder.group({
       loan_amount: [''],
       updated_loan_amount: ['']
-    })
+      });
+
     const approvalId = window.localStorage.getItem('shaurya')
-    //debugger
     this.user = JSON.parse(approvalId)
-    //this.http.get("http://localhost:3001/api/v1/loaneditusers").subscribe((data) => {
-    //console.log(data)
-    //this.users = data['responseMessage'];
-  // }
-  // )
-}
-onSubmit() {
-  const loaneditPayload = {
-    updated_loan_amount: this.editForm.controls.updated_loan_amount.value,
-   }
-  this.submitted = true;
-
-  let data_success
-  this.http.post("http://localhost:3001/api/v1/loaneditusers", loaneditPayload).subscribe((data) => {
-  //console.log(data)
-  data_success = data;
-  if(data_success.responseMessage.length > 0) {
-    alert("Successfully Updated!");
-  } else {
-    alert("Please try again!!");
   }
+  onSubmit() {
+    const loaneditPayload = {
+      id: this.user.id,
+      loan_amount: this.editForm.controls.updated_loan_amount.value
+    }
+    this.submitted = true;
 
-  // stop here if form is invalid
-  // if (this.registerForm.invalid) {
-  //     return;
-  // }
-  // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
-})
+    let data_success
+    this.http.post("http://localhost:3001/api/v1/loaneditusers", loaneditPayload).subscribe((data) => {
+    //console.log(data)
+    data_success = data;
+    if(data_success.responseMessage == 1) {
+      alert("Successfully Updated!");
+    } else {
+      alert("Please try again!!");
+    }
+  })
 }
 }

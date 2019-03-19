@@ -49,6 +49,7 @@ import { LoanEditComponent } from './loan-edit/loan-edit.component';
     ReactiveFormsModule,
     FormsModule,
     HttpModule,
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     HttpClientModule,
     //OverlayModule,
     RouterModule.forRoot([
