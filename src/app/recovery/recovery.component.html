@@ -1,0 +1,88 @@
+<app-header></app-header>
+<app-side-nav></app-side-nav>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body> 
+    <div class="container" style="color:black">
+        <div class="table-wrapper" style="margin-top:100px">
+            <div class="table-title">
+                <div class="row" style="margin-top:0px">
+                    <div class="col-sm-8"><h2><b>Recovery</b></h2>
+                      <h5>Group-Loans</h5>
+                    </div>
+                       
+                   
+                </div>
+            </div>
+               
+            
+            <div style="margin-top: -20px"  >
+                <h5 style="margin-left: 200px" >Center Name/Code :</h5>
+                <form><select class="form-control dropdown-size" id="sel" style="margin-top:-30px">
+                    <option>A</option>
+                    <option>B</option>
+                    <option>C</option>
+                    <option>D</option>
+                  </select>
+                  <input type="submit"  value="Search">
+                </form>
+             </div>
+                 
+            
+             
+              
+             
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="text-center">Member Code</th>
+                        <th class="text-center">Member Name</th>
+                        <th class="text-center">Past Due</th>
+                        <th class="text-center">Current Due</th>
+                        <th class="text-center">Others</th>
+                        <th class="text-center">Paid Amount</th>
+                        <th class="text-center">Mode</th>
+                        <th class="text-center">Preclosure</th>
+
+                    </tr>
+                    <tr >
+                        <td><input type="text" class="fix"></td>
+                        <td><input type="text" class="fix"></td>
+                        <td><input type="number" class="fix"></td>
+                        <td><input type="number" class="fix"></td>
+                        <td><input type="number" class="fix"  ></td>
+                        <td><input type="number" class="fix"></td>
+                        <td><select name="Mode" class="fix" >
+                            <option value="Cash">Cash</option>
+                            <option value="Card">Card</option>
+                            <option value="Online">Online</option>
+                          </select></td>
+                        <td><input type="checkbox"class="fix" ></td>
+    
+                    </tr>
+                </thead>
+                <tbody>
+                 
+
+                
+                </tbody>
+            </table>
+           
+        </div>    
+    </div>  
+       
+</body>
+</html>          
+
+<app-footer></app-footer>
