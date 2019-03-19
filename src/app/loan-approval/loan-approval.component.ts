@@ -44,8 +44,9 @@ export class LoanApprovalComponent implements OnInit {
     // //console.log(data)
     // data_success = data;
     // if(data_success.responseMessage.length > 0) {
+      window.localStorage.setItem('shaurya', JSON.stringify(user))
       this.router.navigate(['/','loanedit']);
-      console.log(user.loan_amount);
+      //console.log(user.loan_amount);
       //this.buttonClicked.emit(user.loan_amount);
   //   } else {
   //     alert("Please again Later!!");
