@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+//import { LoanApprovalComponent } from '../loan-approval/loan-approval.component'
 
 @Component({
   selector: 'app-loan-edit',
