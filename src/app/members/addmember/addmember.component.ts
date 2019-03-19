@@ -55,7 +55,7 @@ export class AddmemberComponent implements OnInit {
     this.http.post("http://localhost:3001/api/v1/addmember", addmemberPayload).subscribe((data) => {
       //console.log(data)
       data_success = data;
-      if(data_success.responseMessage.length>0)
+      if(data_success.responseMessage.length > 0)
         {
           alert("Member added successfully!!");
         } 
