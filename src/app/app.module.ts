@@ -22,6 +22,7 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { LoanApprovalComponent } from './loan-approval/loan-approval.component';
 import { LoanEditComponent } from './loan-edit/loan-edit.component';
+import { RecoveryComponent } from './recovery/recovery.component';
 //import { OverlayModule } from "@angular/cdk/overlay";
 
 @NgModule({
@@ -41,7 +42,8 @@ import { LoanEditComponent } from './loan-edit/loan-edit.component';
     AddmemberComponent,
     LoanAppComponent,
     LoanApprovalComponent,
-    LoanEditComponent
+    LoanEditComponent,
+    RecoveryComponent
   ],
   imports: [
     BrowserModule,
@@ -83,6 +85,10 @@ import { LoanEditComponent } from './loan-edit/loan-edit.component';
       {
         path: 'loanedit',
         component: LoanEditComponent
+      },
+      {
+        path: 'recovery',
+        component: RecoveryComponent
       }
       ])
   ],
