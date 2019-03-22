@@ -18,7 +18,7 @@ body {
 .table-wrapper {
     width: 700px;
     margin: 30px auto;
-    background: whitesmoke;
+    background: #fff;
     padding: 20px;	
     box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }
@@ -39,9 +39,4 @@ table.table th:last-child {
 } 
 .cell{
     width:100%;
-}
-.btn1{
-    background-color: #4CAF50;
-    justify-content: center
-
 }
