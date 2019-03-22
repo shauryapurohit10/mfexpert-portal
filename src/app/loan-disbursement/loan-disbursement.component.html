@@ -1,0 +1,45 @@
+<app-header></app-header>
+
+<app-side-nav></app-side-nav>
+
+<body>
+  <div class="container">
+    <div class="table-wrapper" style="margin-top:50px; width: 1000px; margin-left: 125px">
+      <table class="table table-bordered">
+          <tr>
+            <th class="text-center">Member Code</th>
+            <th class="text-center">Member Name</th>
+            <th class="text-center">Loan Amount </th>
+            <th class="text-center">Outstanding Amount</th>
+            <th class="text-center">Loan Type</th>
+            <th></th>
+          </tr>
+          <tr *ngFor="let user of users; let i= index;">
+              <td>
+                <input type="number" [(ngModel)]="user.member_code" class="text-center cell">
+              </td>
+              <td>
+                  <input type="text" [(ngModel)]="user.member_name" class="text-center cell">
+                </td>
+              <td>
+                <input type="number" [(ngModel)]="user.loan_amount"  class="text-center cell">
+              </td>
+              <td>
+                <input type="text" [(ngModel)]="user.loan_amount" class="text-center cell">
+              </td>
+              <td>
+                  <input type="number" [(ngModel)]="user.loan_type" class="text-center cell">
+                </td>
+              <!-- <td>
+                <input type="date" [(ngModel)]="employee.cnumber" class="text-center">
+              </td> -->
+              <td>
+                <button class="btn btn-primary" style="height:32px" (click)="onSubmit(user)">Disburse</button>
+              </td>
+          </tr>
+      </table>
+    </div>    
+  </div>  
+</body>
+
+<app-footer></app-footer>

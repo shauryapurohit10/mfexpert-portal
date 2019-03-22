@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoanApprovalComponent } from './loan-approval/loan-approval.component';
 import { LoanEditComponent } from './loan-edit/loan-edit.component';
 import { RecoveryComponent } from './recovery/recovery.component';
+import { LoanDisbursementComponent } from './loan-disbursement/loan-disbursement.component';
 //import { OverlayModule } from "@angular/cdk/overlay";
 
 @NgModule({
@@ -43,7 +44,8 @@ import { RecoveryComponent } from './recovery/recovery.component';
     LoanAppComponent,
     LoanApprovalComponent,
     LoanEditComponent,
-    RecoveryComponent
+    RecoveryComponent,
+    LoanDisbursementComponent
   ],
   imports: [
     BrowserModule,
@@ -90,6 +92,10 @@ import { RecoveryComponent } from './recovery/recovery.component';
       {
         path: 'recovery',
         component: RecoveryComponent
+      },
+      {
+        path: 'loandisbursement',
+        component: LoanDisbursementComponent
       }
       ])
   ],

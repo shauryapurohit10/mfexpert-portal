@@ -26,7 +26,9 @@ constructor(private router : Router, private formBuilder: FormBuilder,  private 
     expected_disbursment_date: [''],
     loan_amount: [''],
     purpose: [''],
-    rate_of_interest: ['']
+    rate_of_interest: [''],
+    approve_status: [''],
+    reject_status: ['']
     });
   }
   
@@ -44,7 +46,9 @@ constructor(private router : Router, private formBuilder: FormBuilder,  private 
       expected_disbursment_date: this.registerForm.controls.expected_disbursment_date.value,
       loan_amount: this.registerForm.controls.loan_amount.value,
       purpose: this.registerForm.controls.purpose.value,
-      rate_of_interest: this.registerForm.controls.rate_of_interest.value
+      rate_of_interest: this.registerForm.controls.rate_of_interest.value,
+      approve_status: this.registerForm.controls.approve_status.value,
+      reject_status: this.registerForm.controls.reject_status.value
 
      }
     this.submitted = true;
