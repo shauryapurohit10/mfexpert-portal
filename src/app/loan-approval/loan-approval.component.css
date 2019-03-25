@@ -16,7 +16,7 @@ body {
     color: darkblue;
 }
 .table-wrapper {
-    width: 700px;
+    width: 850px;
     margin: 30px auto;
     background: whitesmoke;
     padding: 20px;	
@@ -40,8 +40,11 @@ table.table th:last-child {
 .cell{
     width:100%;
 }
+<<<<<<< HEAD
+=======
 .btn1{
     background-color: #4CAF50;
     justify-content: center
 
 }
+>>>>>>> 557e22b6ff520d6c1d70cc2540b42f841fd4216f
