@@ -19,15 +19,14 @@
       </div>
   </div> -->
   <div class="container">
-    <div class="table-wrapper" style="margin-top:100px">
+    <div class="table-wrapper" style="margin-top:50px; width: 1000px; margin-left: 125px">
       <table class="table table-bordered">
           <tr>
-            <th class="text-center">Application Code</th>
-            <th class="text-center">Member Code </th>
-            <th class="text-center">Member Name</th>
-            <th class="text-center">Applied Amount</th>
-            <!-- <th class="text-center">Application Date</th> -->
-            <th></th>
+            <th class="text-center" style="width:150px">Application Code</th>
+            <th class="text-center" style="width:125px">Member Code </th>
+            <th class="text-center" style="width:175px">Member Name</th>
+            <th class="text-center" style="width:125px">Applied Amount</th>
+            <th class="text-center" style="width:125px">Loan Status</th>
           </tr>
           <tr *ngFor="let user of users; let i= index;">
               <td>
@@ -42,15 +41,22 @@
               <td>
                 <input type="number" [(ngModel)]="user.loan_amount" class="text-center cell">
               </td>
-              <!-- <td>
-                <input type="date" [(ngModel)]="employee.cnumber" class="text-center">
-              </td> -->
-              <td>
-                <button class="btn btn-primary" style="height:32px" (click)="onSubmit(user)">Approve</button>
-                  <!-- <button class="edit" title="Edit" data-toggle="tooltip" (click)="employee.isEditable=!employee.isEditable" *ngIf="!employee.isEditable"><i class="material-icons">&#xE254;</i></button> -->
-                  <!-- <button class="save" title="Save" data-toggle="tooltip" *ngIf="employee.isEditable" (click)="employee.isEditable=!employee.isEditable"><i class="material-icons">&#xE161;</i></button>
-                  <button class="delete" title="Delete" data-toggle="tooltip" (click)="deleteEmployee(i)"><i class="material-icons">&#xE872;</i></button> -->
-              </td>
+              
+
+                <div *ngIf="!user.approve_status && !user.reject_status">
+                    <td><button class="btn btn1" style="height:32px; color: black" (click)="onSubmit(user)"><strong>Approve</strong></button></td>
+                    <td><button class="btn btn-danger" style="height:32px; color: black" (click)="onClick(user)"><strong>Reject</strong></button></td>
+                </div>
+                <div *ngIf="user.approve_status && !user.reject_status">
+                    <td><button class="btn btn1" style="height:32px; color: black" disabled><strong>Approved</strong></button></td>
+                   <td><button class="btn btn-danger" style="height:32px; color: black" disabled><strong>Reject</strong></button></td>
+                </div>
+                <div *ngIf="!user.approve_status && user.reject_status">
+                    <td><button class="btn btn1" style="height:32px; color: black" disabled><strong>Approve</strong></button></td>
+                    <td><button class="btn btn-danger" style="height:32px; color: black" disabled><strong>Rejected</strong></button></td>
+                </div>
+
+
           </tr>
       </table>
     </div>    
