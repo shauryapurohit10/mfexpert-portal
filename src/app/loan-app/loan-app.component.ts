@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { routerNgProbeToken } from '@angular/router/src/router_module';
 
 
 @Component({
@@ -59,6 +60,18 @@ constructor(private router : Router, private formBuilder: FormBuilder,  private 
     data_success = data;
     if(data_success.responseMessage.length > 0) {
       alert("Details inserted successfully!");
+      this.registerForm.reset({
+        'application_code': ' ',
+        'member_code': '',
+        'member_name': '',
+        'mobile_number': '',
+        'expected_disbursment_date': '',
+        'loan_amount': '',
+        'purpose': '',
+         'rate_of_interest': '',
+         'approve_status': '',
+         'reject_status': ''
+       });
     } else {
       alert("Invalid Credentials!!");
     }
