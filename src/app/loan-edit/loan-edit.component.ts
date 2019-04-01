@@ -61,9 +61,9 @@ onClick() {
 
   let data_success
   this.http.post("http://localhost:3001/api/v1/loaneditusers", loaneditPayload).subscribe((data) => {
-  console.log(data)
+  //console.log(data)
   data_success = data;
-  if(data_success.responseMessage == 1) {
+  if(data_success.responseMessage.length>0) {
     alert("Successfully Updated!");
   } else {
     alert("Please try again!!");
