@@ -33,6 +33,7 @@ export class LoanEditComponent implements OnInit {
     this.user = JSON.parse(approvalId)
   }
   onSubmit() {
+    this.approve_status=1;
     const loaneditPayload = {
       id: this.user.id,
       loan_amount: this.editForm.controls.updated_loan_amount.value
@@ -43,33 +44,36 @@ export class LoanEditComponent implements OnInit {
     this.http.post("http://localhost:3001/api/v1/loaneditusers", loaneditPayload).subscribe((data) => {
     console.log(data)
     data_success = data;
-    if(data_success.responseMessage == 1) {
+     if(data_success.responseMessage == 1) {
       alert("Successfully Updated!");
+      this.router.navigate(['/','loandisbursement']);
     } else {
       alert("Please try again!!");
     }
   })
 }
 
-onClick() {
-  this.approve_status=1;
-  const loaneditPayload = {
-    id: this.user.id,
-    loan_amount: this.editForm.controls.updated_loan_amount.value
-  }
-  this.submitted = true;
+// onClick() {
+//   // this.approve_status=1;
+//   const loaneditPayload = {
+//     id: this.user.id,
+//     loan_amount: this.editForm.controls.updated_loan_amount.value
+//   }
+//   this.submitted = true;
 
-  let data_success
-  this.http.post("http://localhost:3001/api/v1/loaneditusers", loaneditPayload).subscribe((data) => {
-  //console.log(data)
-  data_success = data;
-  if(data_success.responseMessage.length>0) {
-    alert("Successfully Updated!");
-  } else {
-    alert("Please try again!!");
-  }
-})
-}
-
+//   let data_success
+//   this.http.post("http://localhost:3001/api/v1/loaneditusers", loaneditPayload).subscribe((data) => {
+//   //console.log(data)
+//   data_success = data;
+//   if(data_success.responseMessage.length>0) {
+//     alert("Successfully Updated!");
+//   } else {
+//     alert("Please try again!!");
+//   }
+// })
+//  }
+// onClick() {
+//   this.router.navigate(['/','loandisbursement']);
+// }
 
 }

@@ -23,6 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoanApprovalComponent } from './loan-approval/loan-approval.component';
 import { LoanEditComponent } from './loan-edit/loan-edit.component';
 import { RecoveryComponent } from './recovery/recovery.component';
+
+
 import { LoanDisbursementComponent } from './loan-disbursement/loan-disbursement.component';
 //import { OverlayModule } from "@angular/cdk/overlay";
 
@@ -47,7 +49,8 @@ import { LoanDisbursementComponent } from './loan-disbursement/loan-disbursement
     RecoveryComponent,
     LoanDisbursementComponent
   ],
-  imports: [
+  imports: 
+  [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
@@ -79,7 +82,8 @@ import { LoanDisbursementComponent } from './loan-disbursement/loan-disbursement
       },
       {
         path:'loanapp',
-        component:LoanAppComponent
+        component:LoanAppComponent,
+       
       }, 
       {
         path: 'loanapproval',

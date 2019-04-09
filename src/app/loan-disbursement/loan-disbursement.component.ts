@@ -34,7 +34,8 @@ export class LoanDisbursementComponent implements OnInit {
     member_name: [''],
     loan_amount: [''],
     outstanding_amount: [''],
-    loan_type: ['']
+    loan_type: [''],
+    disbursement_status: ['']
     });
   }
 
@@ -44,7 +45,8 @@ export class LoanDisbursementComponent implements OnInit {
       member_name: this.disbursementForm.controls.member_name.value,
       loan_amount: this.disbursementForm.controls.loan_amount.value,
       outstanding_amount: this.disbursementForm.controls.outstanding_amount.value,
-      loan_type: this.disbursementForm.controls.loan_type.value
+      loan_type: this.disbursementForm.controls.loan_type.value,
+      disbursement_status: this.disbursementForm.controls.disbursement_status.value
      }
     this.submitted = true;
 
