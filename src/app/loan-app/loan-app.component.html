@@ -3,11 +3,14 @@
 <app-side-nav></app-side-nav>
 
 <br>
-<div class="jumbotron">
-  <div class="container" style="margin-top:10px; margin-left:230px;margin-bottom:250px; ">
+<div class="jumbotron" style="font-family: 'Open Sans', sans-serif  ">
+        
+  <div class="container" style="margin-top:10px; margin-left:230px;margin-bottom:250px;">
+        <h3 style="margin-top:6px;  font-family: 'Open Sans', sans-serif;   font-size: 23px; "><b>Apply For Loan</b></h3>
     <div class="row">
+           
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-        <div class="col-md-6">
+        <div class="col-md-6" >
           <div class="form-group">
             <label>Application Code: *</label>
             <!-- <input type="text" formControlName="appcode" class="form-control" style="width:430px" /> -->
@@ -57,16 +60,17 @@
                   <div *ngIf="f.product.errors.mustMatch"></div>
               </div> -->
           </div>
+          <div class="form-group">
+            <label>Expected Disbursement Date: </label>
+            <input type="date" formControlName="expected_disbursment_date" class="form-control" style="width: 430px"/>
+            <!-- <input type="text" formControlName="eddate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.eddate.errors }" />
+            <div *ngIf="submitted && f.eddate.errors" class="invalid-feedback">
+              <div *ngIf="f.eddate.errors.required">E-Date is required</div>
+            </div> -->
+          </div>
         </div>
-        <div class="col-md-6">
-            <div class="form-group">
-              <label>Expected Disbursement Date: </label>
-              <input type="date" formControlName="expected_disbursment_date" class="form-control" style="width: 430px"/>
-              <!-- <input type="text" formControlName="eddate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.eddate.errors }" />
-              <div *ngIf="submitted && f.eddate.errors" class="invalid-feedback">
-                <div *ngIf="f.eddate.errors.required">E-Date is required</div>
-              </div> -->
-            </div>
+        
+        <div class="col-md-6" >
             <div class="form-group">
                 <label>Loan Amount:  </label>
                 <input type="text" formControlName="loan_amount" class="form-control" placeholder="0" style="width: 430px" />

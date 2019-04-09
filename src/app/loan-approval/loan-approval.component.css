@@ -37,13 +37,13 @@ table.table th:last-child {
     width: 100px;
     /* height: 100px; */
 } 
-.cell{
+.cell {
     width:100%;
 }
-.btn1{
+
+.btn1 {
     background-color: #4CAF50;
     justify-content: center
-
 }
 body {
     color: #404E67;

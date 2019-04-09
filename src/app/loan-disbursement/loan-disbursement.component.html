@@ -14,54 +14,72 @@
   </head>
 
 <body>
- 
       <div class="container" style="color:black">
-        <div class="table-wrapper"  style="margin-top:100px; width: 1000px; margin-left: 125px" >
+        <div class="table-wrapper"  style="margin-top:100px; width: 1115px; margin-left: 112px" >
             <div class="table-title">
                 <div class="row" style="margin-top:0px">
                     <div class="col-sm-8"><h2><b>Disbursement</b></h2>
                     </div>
-                       
+                    
+                    <form [formGroup]="disbursementForm" (ngSubmit)="onSubmit()">
+                     
+                          <table class="table table-bordered">
+                              <tr>
+                                <th class="text-center">Member Code</th>
+                                <th class="text-center">Member Name</th>
+                                <th class="text-center">Loan Amount </th>
+                                <th class="text-center">Outstanding Amount</th>
+                                <th class="text-center">Loan Type</th>
+                                <th class="text-center">Disburse Status</th>
+                                <th></th>
+                                
+                              </tr>
+                              <tr *ngFor="let user of users; let i= index;">
+                                  <td>
+                                    <input type="number" formControlName="member_code"  [(ngModel)]="user.member_code" class="text-center cell" name="member_code">
+                                  </td>
+                                  <td>
+                                      <input type="text" formControlName="member_name" [(ngModel)]="user.member_name" class="text-center cell" name="member_name">
+                                    </td>
+                                  <td>
+                                    <input type="number" formControlName="loan_amount" [(ngModel)]="user.loan_amount"  class="text-center cell" name="loan_amount">
+                                  </td>
+                                  <td>
+                                    <input type="text" formControlName="outstanding_amount" [(ngModel)]="user.outstanding_amount" class="text-center cell" name="outstanding_amount">
+                                  </td>
+                                  <td>
+                                      <input type="text" formControlName="loan_type"  [(ngModel)]="user.loan_type" class="text-center cell" name="loan_type">
+                                    </td>
+                                    <td>
+                                      <input type="text" formControlName="disbursement_status"  [(ngModel)]="user.disbursement_status" class="text-center cell" name="disbursement_status">
+                                    </td>
+                                  <!-- <td>
+                                    <input type="date" [(ngModel)]="employee.cnumber" class="text-center">
+                                  </td> -->
+
+                                  <div *ngIf="user.disbursement_status==1">
+                                    <td>
+                                      <button class="btn btn-primary" style="height:32px"  (click)="onSubmit(user)" disabled>Disbursed</button>
+                                    </td>
+                                 </div>
+                                 
+                                 <div *ngIf="user.disbursement_status!=1">
+                                  <td>
+                                    <button class="btn btn-primary" style="height:32px" (click)="onSubmit(user)" >Disburse</button>
+                                  </td>
+                               </div>
+                                  <!-- <td>
+                                    <button class="btn btn-primary" style="height:32px" (click)="onSubmit(user)">Disburse</button>
+                                  </td> -->
+                              </tr>
+                          </table>
+                          
+                    </form>  
                    
                 </div>
             </div>
-
-
-      <table class="table table-bordered">
-          <tr>
-            <th class="text-center">Member Code</th>
-            <th class="text-center">Member Name</th>
-            <th class="text-center">Loan Amount </th>
-            <th class="text-center">Outstanding Amount</th>
-            <th class="text-center">Loan Type</th>
-            <th></th>
-          </tr>
-          <tr *ngFor="let user of users; let i= index;">
-              <td>
-                <input type="number" [(ngModel)]="user.member_code" class="text-center cell">
-              </td>
-              <td>
-                  <input type="text" [(ngModel)]="user.member_name" class="text-center cell">
-                </td>
-              <td>
-                <input type="number" [(ngModel)]="user.loan_amount"  class="text-center cell">
-              </td>
-              <td>
-                <input type="text" [(ngModel)]="user.loan_amount" class="text-center cell">
-              </td>
-              <td>
-                  <input type="number" [(ngModel)]="user.loan_type" class="text-center cell">
-                </td>
-              <!-- <td>
-                <input type="date" [(ngModel)]="employee.cnumber" class="text-center">
-              </td> -->
-              <td>
-                <button class="btn btn-primary" style="height:32px" (click)="onSubmit(user)">Disburse</button>
-              </td>
-          </tr>
-      </table>
-    </div>    
-  </div>  
+          </div>
+       </div>
 </body>
 
 <app-footer></app-footer>
